@@ -1,0 +1,84 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Payhip
+providerId: payhip
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- E-commerce
+- Digital Products
+- Memberships
+- Creators
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Payhip spend. Payhip is billed as a platform subscription plus a
+  percentage transaction fee on sales, not as a metered API. Cost is driven by two
+  levers: the chosen plan's monthly fee (Free $0, Plus $29, Pro $99) and the
+  per-sale Payhip fee (5%, 2%, or 0% respectively), layered on top of the payment
+  processor's own fees (Stripe/PayPal). The public API and webhooks add no
+  incremental usage charge - they are a feature of the account. There is no
+  per-request API meter to optimize; cost optimization is about matching plan tier
+  to monthly sales volume so the blended (subscription + transaction) cost is
+  minimized.
+notes: >-
+  Payhip fees verified from payhip.com/pricing. Payment processor fees are set by
+  Stripe/PayPal and are outside Payhip's invoice. Break-even between tiers depends
+  on monthly revenue (Free is cheapest at low volume; Plus and Pro win as volume
+  grows).
+sources:
+- https://payhip.com/pricing
+- https://help.payhip.com/article/102-billing-and-upgrading
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Payhip
+serviceCategory: E-commerce Platform
+billingModel:
+  pricingCategory: Subscription plus Transaction Fee
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+meters:
+- name: platform_subscription
+  description: Fixed monthly platform fee for the chosen plan (Free/Plus/Pro).
+  unit: months
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: transaction_fee
+  description: Payhip's percentage fee applied per sale (5% Free, 2% Plus, 0% Pro).
+  unit: percent
+  aggregation: sum
+  dimensions:
+  - account
+  - product
+- name: processor_fee
+  description: Payment processor fees (Stripe/PayPal) charged per transaction; outside Payhip's invoice.
+  unit: percent
+  aggregation: sum
+  dimensions:
+  - account
+  - processor
+principles:
+- name: Visibility
+  description: Track monthly sales volume and the blended cost of subscription plus Payhip transaction fee plus processor fee.
+- name: Allocation
+  description: Attribute transaction fees per product/storefront to see which offerings carry the most fee load.
+- name: Optimization
+  description: Match plan tier to monthly revenue - Free at low volume, Plus mid-volume, Pro at high volume - so the combined subscription and transaction fee is minimized.
+- name: Accountability
+  description: Review plan choice against actual monthly sales periodically; upgrade or downgrade as revenue crosses the tier break-even points.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

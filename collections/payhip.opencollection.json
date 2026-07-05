@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Payhip API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Coupons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Create a coupon", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://payhip.com/api/v2/coupons",
+            "headers": [{ "name": "payhip-api-key", "value": "{{apiKey}}" }],
+            "body": { "type": "json", "data": "{\"code\":\"LAUNCH20\",\"coupon_type\":\"single\",\"percent_off\":20}" }
+          },
+          "docs": "Creates a discount coupon. Provide either percent_off or amount_off (in cents)."
+        },
+        {
+          "info": { "name": "List coupons", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://payhip.com/api/v2/coupons",
+            "headers": [{ "name": "payhip-api-key", "value": "{{apiKey}}" }],
+            "params": [{ "name": "page", "value": "1", "type": "query", "description": "Page number." }]
+          },
+          "docs": "Lists all coupons on the account, paginated."
+        },
+        {
+          "info": { "name": "Retrieve a coupon", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://payhip.com/api/v2/coupons/:id",
+            "headers": [{ "name": "payhip-api-key", "value": "{{apiKey}}" }],
+            "params": [{ "name": "id", "value": "", "type": "path", "description": "The coupon identifier." }]
+          },
+          "docs": "Retrieves a single coupon by its identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "License Keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Verify a license key", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://payhip.com/api/v2/license/verify",
+            "headers": [{ "name": "product-secret-key", "value": "{{productSecretKey}}" }],
+            "params": [{ "name": "license_key", "value": "", "type": "query", "description": "The license key to verify." }]
+          },
+          "docs": "Validates a license key and returns buyer, product, and usage details."
+        },
+        {
+          "info": { "name": "Enable a license key", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://payhip.com/api/v2/license/enable",
+            "headers": [{ "name": "product-secret-key", "value": "{{productSecretKey}}" }],
+            "body": { "type": "json", "data": "{\"license_key\":\"\"}" }
+          },
+          "docs": "Reactivates a previously disabled license key."
+        },
+        {
+          "info": { "name": "Disable a license key", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://payhip.com/api/v2/license/disable",
+            "headers": [{ "name": "product-secret-key", "value": "{{productSecretKey}}" }],
+            "body": { "type": "json", "data": "{\"license_key\":\"\"}" }
+          },
+          "docs": "Deactivates a license key so it no longer verifies as valid."
+        },
+        {
+          "info": { "name": "Increment license usage", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://payhip.com/api/v2/license/usage",
+            "headers": [{ "name": "product-secret-key", "value": "{{productSecretKey}}" }],
+            "body": { "type": "json", "data": "{\"license_key\":\"\"}" }
+          },
+          "docs": "Increments the usage counter for a license key by one."
+        },
+        {
+          "info": { "name": "Decrement license usage", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://payhip.com/api/v2/license/decrease",
+            "headers": [{ "name": "product-secret-key", "value": "{{productSecretKey}}" }],
+            "body": { "type": "json", "data": "{\"license_key\":\"\"}" }
+          },
+          "docs": "Decrements the usage counter for a license key by one."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Payhip
+providerId: payhip
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- E-commerce
+- Coupons
+- License Keys
+- Webhooks
+- Rate Limiting
+description: >-
+  Payhip does not publish numeric rate limits for its public REST API (Coupons
+  and License Keys). Standard HTTP status codes apply, and callers should assume
+  an unspecified fair-use ceiling and implement retry/backoff on errors. For
+  outbound webhooks, Payhip documents a concrete delivery-retry policy: the
+  receiving endpoint must return HTTP 200, and failed deliveries are retried
+  hourly for up to three hours before being dropped.
+notes: >-
+  No per-minute or per-day request cap is documented for the REST API as of the
+  review date. The webhook retry behavior is documented in the Payhip webhooks
+  help article. Verify any account-level limits against live responses.
+sources:
+- https://payhip.com/api-reference
+- https://help.payhip.com/article/347-public-api
+- https://help.payhip.com/article/115-webhooks
+responseCodes:
+  throttled: 429
+limits:
+- name: REST API Requests
+  scope: account
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented for the Coupons or License Keys endpoints.
+- name: Webhook Delivery Retries
+  scope: endpoint
+  metric: deliveries
+  limit: hourly retry for up to 3 hours
+  notes: Failed webhook deliveries (non-200 responses) are retried hourly for up to three hours, then dropped.
+policies:
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on any 429 or 5xx responses from the REST API.
+- name: Webhook Acknowledgement
+  description: A webhook receiver must respond with HTTP 200 to acknowledge delivery; otherwise Payhip retries the event hourly for up to three hours.
+- name: Signature Verification
+  description: Verify each webhook by comparing its signature field with hash('sha256', apiKey) before trusting the payload.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

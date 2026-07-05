@@ -1,0 +1,113 @@
+aid: payhip
+url: https://raw.githubusercontent.com/api-evangelist/payhip/refs/heads/main/apis.yml
+name: Payhip
+kind: company
+description: Payhip is an all-in-one e-commerce platform that lets creators sell digital
+  downloads, online courses, memberships, coupons, and physical products directly to
+  their audience, with hosted storefronts and checkout. Its public REST API (base
+  https://payhip.com/api/v2) currently exposes programmatic management of Coupons and
+  verification/management of software License Keys, authenticated with an API key or a
+  per-product secret key. Order, customer, and transaction data is delivered to
+  applications through signed webhooks (paid, refunded, subscription.created,
+  subscription.deleted) rather than through pollable REST resources.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- E-commerce
+- Digital Products
+- Memberships
+- Creators
+- Coupons
+- License Keys
+- Webhooks
+- Payments
+created: '2026-07-05'
+modified: '2026-07-05'
+specificationVersion: '0.19'
+apis:
+- aid: payhip:payhip-coupons-api
+  name: Payhip Coupons API
+  tags:
+  - Coupons
+  - Discounts
+  - E-commerce
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://payhip.com/api-reference
+  baseURL: https://payhip.com/api/v2
+  properties:
+  - url: https://help.payhip.com/article/347-public-api
+    type: Documentation
+  - url: https://payhip.com/api-reference
+    type: APIReference
+  - url: openapi/payhip-openapi.yml
+    type: OpenAPI
+  - url: collections/payhip.postman_collection.json
+    type: PostmanCollection
+  - url: collections/payhip.opencollection.json
+    type: OpenCollection
+  description: Programmatically create, list, and retrieve discount coupons - percentage
+    or fixed-amount, single, multi-use, or collection-scoped - including usage limits,
+    minimum purchase amounts, start/end dates, and product or collection targeting.
+    Authenticated with the account API key via the payhip-api-key header.
+- aid: payhip:payhip-license-keys-api
+  name: Payhip License Keys API
+  tags:
+  - License Keys
+  - Software Licensing
+  - Verification
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://payhip.com/api-reference
+  baseURL: https://payhip.com/api/v2
+  properties:
+  - url: https://help.payhip.com/article/347-public-api
+    type: Documentation
+  - url: https://payhip.com/api-reference
+    type: APIReference
+  - url: openapi/payhip-openapi.yml
+    type: OpenAPI
+  - url: collections/payhip.postman_collection.json
+    type: PostmanCollection
+  - url: collections/payhip.opencollection.json
+    type: OpenCollection
+  description: Verify and manage software license keys issued for Payhip products -
+    validate a key and read its buyer, product, and usage details; enable or disable a
+    key; and increment or decrement its usage count. Authenticated with the per-product
+    secret key via the product-secret-key header.
+- aid: payhip:payhip-webhooks-api
+  name: Payhip Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - Transactions
+  - Subscriptions
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://help.payhip.com/article/115-webhooks
+  baseURL: https://payhip.com/api/v2
+  properties:
+  - url: https://help.payhip.com/article/115-webhooks
+    type: Documentation
+  - url: openapi/payhip-openapi.yml
+    type: OpenAPI
+  description: Receive server-to-endpoint HTTP callbacks for account events - paid
+    (customer charged), refunded, subscription.created, and subscription.deleted -
+    carrying transaction, customer, item, and subscription details. Payloads include a
+    signature that verifies authenticity as hash('sha256', apiKey). This is how order,
+    customer, and transaction data reaches external applications; there is no pollable
+    REST resource for them.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/payhip
+- type: Website
+  url: https://payhip.com
+- type: Documentation
+  url: https://help.payhip.com/category/48-developer
+- type: APIReference
+  url: https://payhip.com/api-reference
+- type: Plans
+  url: plans/payhip-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/payhip-rate-limits.yml
+- type: FinOps
+  url: finops/payhip-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

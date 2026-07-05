@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "Payhip API",
+    "description": "Programmatic access to a Payhip creator e-commerce account. The public API currently exposes Coupons (account API key via the payhip-api-key header) and software License Keys (per-product secret key via the product-secret-key header). Base URL: https://payhip.com/api/v2. Responses are JSON wrapped in a data object. Order/customer/transaction data is delivered via webhooks (paid, refunded, subscription.created, subscription.deleted), not via REST.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://payhip.com/api/v2", "type": "string" },
+    { "key": "apiKey", "value": "", "type": "string" },
+    { "key": "productSecretKey", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Coupons",
+      "item": [
+        {
+          "name": "Create a coupon",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "payhip-api-key", "value": "{{apiKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"code\": \"LAUNCH20\",\n  \"coupon_type\": \"single\",\n  \"percent_off\": 20,\n  \"product_key\": \"\",\n  \"usage_limit\": 100\n}" },
+            "url": { "raw": "{{baseUrl}}/coupons", "host": ["{{baseUrl}}"], "path": ["coupons"] },
+            "description": "Creates a discount coupon. Provide either percent_off or amount_off (cents)."
+          }
+        },
+        {
+          "name": "List coupons",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "payhip-api-key", "value": "{{apiKey}}" }],
+            "url": { "raw": "{{baseUrl}}/coupons?page=1", "host": ["{{baseUrl}}"], "path": ["coupons"], "query": [{ "key": "page", "value": "1" }] },
+            "description": "Lists all coupons on the account, paginated."
+          }
+        },
+        {
+          "name": "Retrieve a coupon",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "payhip-api-key", "value": "{{apiKey}}" }],
+            "url": { "raw": "{{baseUrl}}/coupons/:id", "host": ["{{baseUrl}}"], "path": ["coupons", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a single coupon by its identifier."
+          }
+        }
+      ]
+    },
+    {
+      "name": "License Keys",
+      "item": [
+        {
+          "name": "Verify a license key",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "product-secret-key", "value": "{{productSecretKey}}" }],
+            "url": { "raw": "{{baseUrl}}/license/verify?license_key=", "host": ["{{baseUrl}}"], "path": ["license", "verify"], "query": [{ "key": "license_key", "value": "" }] },
+            "description": "Validates a license key and returns buyer, product, and usage details."
+          }
+        },
+        {
+          "name": "Enable a license key",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "product-secret-key", "value": "{{productSecretKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"license_key\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/license/enable", "host": ["{{baseUrl}}"], "path": ["license", "enable"] },
+            "description": "Reactivates a previously disabled license key."
+          }
+        },
+        {
+          "name": "Disable a license key",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "product-secret-key", "value": "{{productSecretKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"license_key\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/license/disable", "host": ["{{baseUrl}}"], "path": ["license", "disable"] },
+            "description": "Deactivates a license key so it no longer verifies as valid."
+          }
+        },
+        {
+          "name": "Increment license usage",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "product-secret-key", "value": "{{productSecretKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"license_key\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/license/usage", "host": ["{{baseUrl}}"], "path": ["license", "usage"] },
+            "description": "Increments the usage counter for a license key by one."
+          }
+        },
+        {
+          "name": "Decrement license usage",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "product-secret-key", "value": "{{productSecretKey}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"license_key\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/license/decrease", "host": ["{{baseUrl}}"], "path": ["license", "decrease"] },
+            "description": "Decrements the usage counter for a license key by one."
+          }
+        }
+      ]
+    }
+  ]
+}

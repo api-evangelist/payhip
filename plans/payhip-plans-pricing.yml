@@ -1,0 +1,131 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Payhip
+providerId: payhip
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: true
+tags:
+- E-commerce
+- Digital Products
+- Memberships
+- Creators
+- Plans
+description: >-
+  Payhip is priced as a platform subscription, not as a metered API. All three
+  plans include the full feature set (unlimited products, unlimited revenue,
+  hosted storefront, coupons, license keys, and API/webhook access); the plans
+  differ only in the monthly fee and the per-sale transaction fee Payhip charges
+  on top of the payment processor's own fees. The public API and webhooks are
+  available on every plan at no separate charge. Payment processor fees (Stripe,
+  PayPal) always apply and are separate from Payhip's transaction fee.
+notes: >-
+  Prices verified from payhip.com/pricing (2026). Processor fees are not set by
+  Payhip. There is no per-request or per-call API fee; API access is a feature of
+  the account, gated only by the transaction fee on the underlying sales.
+sources:
+- https://payhip.com/pricing
+- https://help.payhip.com/article/102-billing-and-upgrading
+- https://help.payhip.com/article/347-public-api
+plans:
+- id: payhip-free
+  name: Free
+  type: free
+  description: >-
+    No monthly cost with the full feature set - unlimited products, unlimited
+    revenue, hosted storefront, coupons, license keys, and API/webhook access.
+    Payhip charges a 5 percent fee on each transaction (processor fees separate).
+  entries:
+  - label: Monthly Platform Fee
+    name: monthly_fee
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0/month
+    userMultiplied: false
+  - label: Per-Sale Transaction Fee
+    name: transaction_fee
+    type: usage
+    metric: percent
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 5% per sale (plus payment processor fees)
+    userMultiplied: false
+  elements:
+  - name: Unlimited Products
+  - name: Unlimited Revenue
+  - name: Public API and Webhooks
+  - name: Coupons and License Keys
+- id: payhip-plus
+  name: Plus
+  type: paid
+  description: >-
+    Same full feature set as Free with a reduced per-sale transaction fee, for
+    creators with growing sales volume.
+  entries:
+  - label: Monthly Platform Fee
+    name: monthly_fee
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $29/month
+    userMultiplied: false
+  - label: Per-Sale Transaction Fee
+    name: transaction_fee
+    type: usage
+    metric: percent
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 2% per sale (plus payment processor fees)
+    userMultiplied: false
+  elements:
+  - name: Unlimited Products
+  - name: Unlimited Revenue
+  - name: Public API and Webhooks
+  - name: Coupons and License Keys
+- id: payhip-pro
+  name: Pro
+  type: paid
+  description: >-
+    Same full feature set with no Payhip per-sale transaction fee, best for
+    higher-volume sellers. Only payment processor fees apply.
+  entries:
+  - label: Monthly Platform Fee
+    name: monthly_fee
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $99/month
+    userMultiplied: false
+  - label: Per-Sale Transaction Fee
+    name: transaction_fee
+    type: usage
+    metric: percent
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0% Payhip fee (payment processor fees still apply)
+    userMultiplied: false
+  elements:
+  - name: Unlimited Products
+  - name: Unlimited Revenue
+  - name: Public API and Webhooks
+  - name: Coupons and License Keys
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
