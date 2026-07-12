@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/payhip-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: payhip-api-key
+  description: Account API key from the Developer Settings page. Used for coupon operations.
+  sources:
+  - openapi/payhip-openapi.yml
+- name: productSecretAuth
+  type: apiKey
+  in: header
+  parameter: product-secret-key
+  description: Per-product secret key from the Developer Settings page. Used for license key
+    operations.
+  sources:
+  - openapi/payhip-openapi.yml

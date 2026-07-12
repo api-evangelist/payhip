@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: payhip.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 14 02:56:54 2026 GMT
+  hsts: false
+- host: help.payhip.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 27 18:18:41 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+domains:
+- domain: payhip.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

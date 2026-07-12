@@ -94,6 +94,10 @@ apis:
     customer, and transaction data reaches external applications; there is no pollable
     REST resource for them.
 common:
+- type: DomainSecurity
+  url: security/payhip-domain-security.yml
+- type: Authentication
+  url: authentication/payhip-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/payhip
 - type: Website
