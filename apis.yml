@@ -94,6 +94,8 @@ apis:
     customer, and transaction data reaches external applications; there is no pollable
     REST resource for them.
 common:
+- type: AgenticAccess
+  url: agentic-access/payhip-agentic-access.yml
 - type: DomainSecurity
   url: security/payhip-domain-security.yml
 - type: Authentication
