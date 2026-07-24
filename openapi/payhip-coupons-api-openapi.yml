@@ -1,0 +1,190 @@
+openapi: 3.1.0
+info:
+  title: Payhip Coupons API
+  description: The Payhip API provides programmatic access to a Payhip creator e-commerce account. It follows RESTful conventions, uses resource-based URLs, accepts form-encoded or JSON request bodies, and returns JSON responses wrapped in a "data" object. The public API currently exposes two resource families - Coupons and software License Keys. Coupon operations authenticate with the account API key (payhip-api-key header); license operations authenticate with a per-product secret key (product-secret-key header). Both keys are managed from the Developer Settings page. Order, customer, and transaction data is not exposed as a REST resource; it is delivered through the webhooks documented in the "webhooks" section (paid, refunded, subscription.created, subscription.deleted), whose payloads carry a signature equal to hash('sha256', apiKey). Not all Payhip features are available in the API; Payhip states more resources are planned.
+  version: '2.0'
+  contact:
+    name: Payhip
+    url: https://payhip.com
+  x-modeled: Paths, methods, webhook event names, and field names are taken from Payhip's published API reference (payhip.com/api-reference) and webhooks help article. Request/response schemas expand documented fields into typed properties and should be reconciled against a live account response.
+servers:
+- url: https://payhip.com/api/v2
+  description: Payhip public API
+tags:
+- name: Coupons
+  description: Create, list, and retrieve discount coupons.
+paths:
+  /coupons:
+    post:
+      operationId: createCoupon
+      tags:
+      - Coupons
+      summary: Create a coupon
+      description: Creates a discount coupon for a product or collection. Provide either percent_off or amount_off.
+      security:
+      - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CouponInput'
+      responses:
+        '200':
+          description: The created coupon.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CouponEnvelope'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    get:
+      operationId: listCoupons
+      tags:
+      - Coupons
+      summary: List coupons
+      description: Lists all coupons on the account, paginated.
+      security:
+      - apiKeyAuth: []
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: Page number for paginated results.
+        schema:
+          type: integer
+          minimum: 1
+      responses:
+        '200':
+          description: A paginated list of coupons.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Coupon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /coupons/{id}:
+    get:
+      operationId: getCoupon
+      tags:
+      - Coupons
+      summary: Retrieve a coupon
+      description: Retrieves a single coupon by its identifier.
+      security:
+      - apiKeyAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The identifier of the coupon.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The requested coupon.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CouponEnvelope'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    CouponInput:
+      type: object
+      required:
+      - code
+      properties:
+        code:
+          type: string
+          description: The coupon code customers enter at checkout.
+        coupon_type:
+          type: string
+          description: Scope of the coupon.
+          enum:
+          - single
+          - multi
+          - collection
+        percent_off:
+          type: number
+          description: Percentage discount. Provide this or amount_off.
+        amount_off:
+          type: integer
+          description: Fixed discount in cents. Provide this or percent_off.
+        product_key:
+          type: string
+          description: The product the coupon applies to (for single/multi coupons).
+        collection_id:
+          type: string
+          description: The collection the coupon applies to (for collection coupons).
+        minimum_purchase_amount:
+          type: integer
+          description: Minimum cart total in cents required for the coupon to apply.
+        usage_limit:
+          type: integer
+          description: Maximum number of times the coupon can be redeemed.
+        start_date:
+          type: string
+          format: date
+          description: Date the coupon becomes active.
+        end_date:
+          type: string
+          format: date
+          description: Date the coupon expires.
+        notes:
+          type: string
+          description: Internal notes about the coupon.
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    Coupon:
+      allOf:
+      - $ref: '#/components/schemas/CouponInput'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: Unique identifier for the coupon.
+          usage_count:
+            type: integer
+            description: Number of times the coupon has been redeemed.
+    CouponEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Coupon'
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key / product secret key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: payhip-api-key
+      description: Account API key from the Developer Settings page. Used for coupon operations.
+    productSecretAuth:
+      type: apiKey
+      in: header
+      name: product-secret-key
+      description: Per-product secret key from the Developer Settings page. Used for license key operations.

@@ -1,0 +1,212 @@
+openapi: 3.1.0
+info:
+  title: Payhip Coupons License Keys API
+  description: The Payhip API provides programmatic access to a Payhip creator e-commerce account. It follows RESTful conventions, uses resource-based URLs, accepts form-encoded or JSON request bodies, and returns JSON responses wrapped in a "data" object. The public API currently exposes two resource families - Coupons and software License Keys. Coupon operations authenticate with the account API key (payhip-api-key header); license operations authenticate with a per-product secret key (product-secret-key header). Both keys are managed from the Developer Settings page. Order, customer, and transaction data is not exposed as a REST resource; it is delivered through the webhooks documented in the "webhooks" section (paid, refunded, subscription.created, subscription.deleted), whose payloads carry a signature equal to hash('sha256', apiKey). Not all Payhip features are available in the API; Payhip states more resources are planned.
+  version: '2.0'
+  contact:
+    name: Payhip
+    url: https://payhip.com
+  x-modeled: Paths, methods, webhook event names, and field names are taken from Payhip's published API reference (payhip.com/api-reference) and webhooks help article. Request/response schemas expand documented fields into typed properties and should be reconciled against a live account response.
+servers:
+- url: https://payhip.com/api/v2
+  description: Payhip public API
+tags:
+- name: License Keys
+  description: Verify and manage software license keys issued for Payhip products.
+paths:
+  /license/verify:
+    get:
+      operationId: verifyLicense
+      tags:
+      - License Keys
+      summary: Verify a license key
+      description: Validates a license key and returns its status plus buyer, product, and usage details.
+      security:
+      - productSecretAuth: []
+      parameters:
+      - name: license_key
+        in: query
+        required: true
+        description: The license key to verify.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The license key and its details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseEnvelope'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /license/enable:
+    put:
+      operationId: enableLicense
+      tags:
+      - License Keys
+      summary: Enable a license key
+      description: Reactivates a previously disabled license key.
+      security:
+      - productSecretAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LicenseKeyRef'
+      responses:
+        '200':
+          description: The updated license key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseEnvelope'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /license/disable:
+    put:
+      operationId: disableLicense
+      tags:
+      - License Keys
+      summary: Disable a license key
+      description: Deactivates a license key so it no longer verifies as valid.
+      security:
+      - productSecretAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LicenseKeyRef'
+      responses:
+        '200':
+          description: The updated license key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseEnvelope'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /license/usage:
+    put:
+      operationId: increaseLicenseUsage
+      tags:
+      - License Keys
+      summary: Increment license usage
+      description: Increments the usage counter for a license key by one.
+      security:
+      - productSecretAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LicenseKeyRef'
+      responses:
+        '200':
+          description: The updated license key with its new usage count.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseEnvelope'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /license/decrease:
+    put:
+      operationId: decreaseLicenseUsage
+      tags:
+      - License Keys
+      summary: Decrement license usage
+      description: Decrements the usage counter for a license key by one.
+      security:
+      - productSecretAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LicenseKeyRef'
+      responses:
+        '200':
+          description: The updated license key with its new usage count.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseEnvelope'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key / product secret key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    LicenseKeyRef:
+      type: object
+      required:
+      - license_key
+      properties:
+        license_key:
+          type: string
+          description: The license key to act on.
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    LicenseEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/LicenseKey'
+    LicenseKey:
+      type: object
+      properties:
+        license_key:
+          type: string
+        enabled:
+          type: boolean
+          description: Whether the key currently verifies as valid.
+        product_link:
+          type: string
+          description: URL slug/link of the product the key belongs to.
+        product_name:
+          type: string
+        variant_id:
+          type: string
+        variant_name:
+          type: string
+        buyer_email:
+          type: string
+          format: email
+        uses:
+          type: integer
+          description: Current usage count for the key.
+        date:
+          type: string
+          format: date-time
+          description: When the key was issued.
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: payhip-api-key
+      description: Account API key from the Developer Settings page. Used for coupon operations.
+    productSecretAuth:
+      type: apiKey
+      in: header
+      name: product-secret-key
+      description: Per-product secret key from the Developer Settings page. Used for license key operations.
