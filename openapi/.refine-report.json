@@ -1,0 +1,16 @@
+{
+  "provider": "payhip",
+  "sources": [
+    "payhip-coupons-api-openapi.yml",
+    "payhip-license-keys-api-openapi.yml"
+  ],
+  "outputs": [
+    "payhip-coupons-api-openapi.yml",
+    "payhip-license-keys-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
