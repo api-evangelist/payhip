@@ -1,0 +1,568 @@
+{
+  "item": [
+    {
+      "id": "2547922f-7f7c-4362-9e67-fb68452fe07b",
+      "name": "Coupons",
+      "description": {
+        "content": "Create, list, and retrieve discount coupons.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ef12e048-1e3d-4a1a-a579-f51fe2561bdb",
+          "name": "Create a coupon",
+          "request": {
+            "name": "Create a coupon",
+            "description": {
+              "content": "Creates a discount coupon for a product or collection. Provide either percent_off or amount_off.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "coupons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "payhip-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"coupon_type\": \"<string>\",\n  \"percent_off\": \"<number>\",\n  \"amount_off\": \"<integer>\",\n  \"product_key\": \"<string>\",\n  \"collection_id\": \"<string>\",\n  \"minimum_purchase_amount\": \"<integer>\",\n  \"usage_limit\": \"<integer>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75f7c8a4-6804-495c-a952-813962e6987b",
+              "name": "The created coupon.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "payhip-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"coupon_type\": \"<string>\",\n  \"percent_off\": \"<number>\",\n  \"amount_off\": \"<integer>\",\n  \"product_key\": \"<string>\",\n  \"collection_id\": \"<string>\",\n  \"minimum_purchase_amount\": \"<integer>\",\n  \"usage_limit\": \"<integer>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"code\": \"string\",\n    \"coupon_type\": \"single\",\n    \"percent_off\": 6775.615636055377,\n    \"amount_off\": 1322,\n    \"product_key\": \"string\",\n    \"collection_id\": \"string\",\n    \"minimum_purchase_amount\": 6339,\n    \"usage_limit\": 7969,\n    \"start_date\": \"1972-03-14\",\n    \"end_date\": \"1959-07-22\",\n    \"notes\": \"string\",\n    \"id\": \"string\",\n    \"usage_count\": 8206\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ad76be4-3894-467a-bd5d-d034005e860f",
+              "name": "Missing or invalid API key / product secret key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "payhip-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"coupon_type\": \"<string>\",\n  \"percent_off\": \"<number>\",\n  \"amount_off\": \"<integer>\",\n  \"product_key\": \"<string>\",\n  \"collection_id\": \"<string>\",\n  \"minimum_purchase_amount\": \"<integer>\",\n  \"usage_limit\": \"<integer>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fee5f6c9-afa8-40e4-a9a1-2602a9f7279e",
+          "name": "List coupons",
+          "request": {
+            "name": "List coupons",
+            "description": {
+              "content": "Lists all coupons on the account, paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "coupons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for paginated results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "payhip-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "268e216a-4f48-44cd-99d0-d8f75ea7bfd8",
+              "name": "A paginated list of coupons.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "payhip-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"code\": \"string\",\n      \"coupon_type\": \"single\",\n      \"percent_off\": 7212.5617566316705,\n      \"amount_off\": 7729,\n      \"product_key\": \"string\",\n      \"collection_id\": \"string\",\n      \"minimum_purchase_amount\": 8145,\n      \"usage_limit\": 6542,\n      \"start_date\": \"1959-02-25\",\n      \"end_date\": \"1990-02-16\",\n      \"notes\": \"string\",\n      \"id\": \"string\",\n      \"usage_count\": 6815\n    },\n    {\n      \"code\": \"string\",\n      \"coupon_type\": \"collection\",\n      \"percent_off\": 144.99516313930206,\n      \"amount_off\": 9677,\n      \"product_key\": \"string\",\n      \"collection_id\": \"string\",\n      \"minimum_purchase_amount\": 8671,\n      \"usage_limit\": 5271,\n      \"start_date\": \"2006-07-06\",\n      \"end_date\": \"2005-11-15\",\n      \"notes\": \"string\",\n      \"id\": \"string\",\n      \"usage_count\": 5242\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c4ddd0b-298c-4530-a1ff-a215be4a8d58",
+              "name": "Missing or invalid API key / product secret key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "payhip-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d46943c3-b085-4093-8b05-117052984486",
+          "name": "Retrieve a coupon",
+          "request": {
+            "name": "Retrieve a coupon",
+            "description": {
+              "content": "Retrieves a single coupon by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "coupons",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The identifier of the coupon."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "payhip-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1eccc53f-4077-402f-9d3f-7bea1390c02b",
+              "name": "The requested coupon.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The identifier of the coupon."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "payhip-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"code\": \"string\",\n    \"coupon_type\": \"single\",\n    \"percent_off\": 6775.615636055377,\n    \"amount_off\": 1322,\n    \"product_key\": \"string\",\n    \"collection_id\": \"string\",\n    \"minimum_purchase_amount\": 6339,\n    \"usage_limit\": 7969,\n    \"start_date\": \"1972-03-14\",\n    \"end_date\": \"1959-07-22\",\n    \"notes\": \"string\",\n    \"id\": \"string\",\n    \"usage_count\": 8206\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66a61629-b27e-497b-9594-b2d8e819afba",
+              "name": "Missing or invalid API key / product secret key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The identifier of the coupon."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "payhip-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00a0879a-229d-480e-a0e2-d1cf7123d08f",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The identifier of the coupon."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "payhip-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://payhip.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7d37799f-bdb7-4077-a5d6-381087dd3fa0",
+    "name": "Payhip Coupons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Payhip API provides programmatic access to a Payhip creator e-commerce account. It follows RESTful conventions, uses resource-based URLs, accepts form-encoded or JSON request bodies, and returns JSON responses wrapped in a \"data\" object. The public API currently exposes two resource families - Coupons and software License Keys. Coupon operations authenticate with the account API key (payhip-api-key header); license operations authenticate with a per-product secret key (product-secret-key header). Both keys are managed from the Developer Settings page. Order, customer, and transaction data is not exposed as a REST resource; it is delivered through the webhooks documented in the \"webhooks\" section (paid, refunded, subscription.created, subscription.deleted), whose payloads carry a signature equal to hash('sha256', apiKey). Not all Payhip features are available in the API; Payhip states more resources are planned.\n\nContact Support:\n Name: Payhip",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Payhip Coupons License Keys API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "License Keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify a license key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://payhip.com/api/v2/license/verify",
+            "params": [
+              {
+                "name": "license_key",
+                "value": "",
+                "type": "query",
+                "description": "The license key to verify."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "product-secret-key",
+              "value": "{{product-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Validates a license key and returns its status plus buyer, product, and usage details."
+        },
+        {
+          "info": {
+            "name": "Enable a license key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://payhip.com/api/v2/license/enable",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "product-secret-key",
+              "value": "{{product-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Reactivates a previously disabled license key."
+        },
+        {
+          "info": {
+            "name": "Disable a license key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://payhip.com/api/v2/license/disable",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "product-secret-key",
+              "value": "{{product-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Deactivates a license key so it no longer verifies as valid."
+        },
+        {
+          "info": {
+            "name": "Increment license usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://payhip.com/api/v2/license/usage",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "product-secret-key",
+              "value": "{{product-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Increments the usage counter for a license key by one."
+        },
+        {
+          "info": {
+            "name": "Decrement license usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://payhip.com/api/v2/license/decrease",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "product-secret-key",
+              "value": "{{product-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Decrements the usage counter for a license key by one."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

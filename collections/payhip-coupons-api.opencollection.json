@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Payhip Coupons API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Coupons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List coupons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://payhip.com/api/v2/coupons",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated results."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "payhip-api-key",
+              "value": "{{payhip-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Lists all coupons on the account, paginated."
+        },
+        {
+          "info": {
+            "name": "Create a coupon",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://payhip.com/api/v2/coupons",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "payhip-api-key",
+              "value": "{{payhip-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates a discount coupon for a product or collection. Provide either percent_off or amount_off."
+        },
+        {
+          "info": {
+            "name": "Retrieve a coupon",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://payhip.com/api/v2/coupons/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The identifier of the coupon."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "payhip-api-key",
+              "value": "{{payhip-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves a single coupon by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
