@@ -98,6 +98,16 @@ apis:
     url: collections/payhip.opencollection.json
   - type: Documentation
     url: https://help.payhip.com/article/115-webhooks
+- aid: payhip:payhip-payhip-api-api
+  name: Payhip Payhip API
+  description: The Payhip API API from Payhip — 0 operation(s) for payhip api.
+  humanURL: https://payhip.com/api-reference
+  baseURL: https://payhip.com/api/v2
+  tags:
+  - Payhip API
+  properties:
+  - type: OpenAPI
+    url: openapi/payhip-payhip-api-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/payhip-agentic-access.yml

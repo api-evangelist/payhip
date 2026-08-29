@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Payhip Coupons API
   description: The Payhip API provides programmatic access to a Payhip creator e-commerce account. It follows RESTful conventions, uses resource-based URLs, accepts form-encoded or JSON request bodies, and returns JSON responses wrapped in a "data" object. The public API currently exposes two resource families - Coupons and software License Keys. Coupon operations authenticate with the account API key (payhip-api-key header); license operations authenticate with a per-product secret key (product-secret-key header). Both keys are managed from the Developer Settings page. Order, customer, and transaction data is not exposed as a REST resource; it is delivered through the webhooks documented in the "webhooks" section (paid, refunded, subscription.created, subscription.deleted), whose payloads carry a signature equal to hash('sha256', apiKey). Not all Payhip features are available in the API; Payhip states more resources are planned.
@@ -97,6 +97,22 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    CouponEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Coupon'
+    Coupon:
+      allOf:
+      - $ref: '#/components/schemas/CouponInput'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: Unique identifier for the coupon.
+          usage_count:
+            type: integer
+            description: Number of times the coupon has been redeemed.
     CouponInput:
       type: object
       required:
@@ -148,31 +164,15 @@ components:
           type: string
         message:
           type: string
-    Coupon:
-      allOf:
-      - $ref: '#/components/schemas/CouponInput'
-      - type: object
-        properties:
-          id:
-            type: string
-            description: Unique identifier for the coupon.
-          usage_count:
-            type: integer
-            description: Number of times the coupon has been redeemed.
-    CouponEnvelope:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Coupon'
   responses:
-    NotFound:
-      description: The requested resource was not found.
+    Unauthorized:
+      description: Missing or invalid API key / product secret key.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API key / product secret key.
+    NotFound:
+      description: The requested resource was not found.
       content:
         application/json:
           schema:

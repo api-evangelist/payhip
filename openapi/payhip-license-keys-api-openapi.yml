@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Payhip Coupons License Keys API
+  title: Payhip License Keys API
   description: The Payhip API provides programmatic access to a Payhip creator e-commerce account. It follows RESTful conventions, uses resource-based URLs, accepts form-encoded or JSON request bodies, and returns JSON responses wrapped in a "data" object. The public API currently exposes two resource families - Coupons and software License Keys. Coupon operations authenticate with the account API key (payhip-api-key header); license operations authenticate with a per-product secret key (product-secret-key header). Both keys are managed from the Developer Settings page. Order, customer, and transaction data is not exposed as a REST resource; it is delivered through the webhooks documented in the "webhooks" section (paid, refunded, subscription.created, subscription.deleted), whose payloads carry a signature equal to hash('sha256', apiKey). Not all Payhip features are available in the API; Payhip states more resources are planned.
   version: '2.0'
   contact:
@@ -138,20 +138,12 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API key / product secret key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    LicenseEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/LicenseKey'
     LicenseKeyRef:
       type: object
       required:
@@ -160,18 +152,6 @@ components:
         license_key:
           type: string
           description: The license key to act on.
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-    LicenseEnvelope:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/LicenseKey'
     LicenseKey:
       type: object
       properties:
@@ -199,6 +179,26 @@ components:
           type: string
           format: date-time
           description: When the key was issued.
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid API key / product secret key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

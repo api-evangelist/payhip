@@ -1,0 +1,150 @@
+openapi: 3.2.0
+info:
+  title: Payhip API
+  description: The Payhip API provides programmatic access to a Payhip creator e-commerce account. It follows RESTful conventions, uses resource-based URLs, accepts form-encoded or JSON request bodies, and returns JSON responses wrapped in a "data" object. The public API currently exposes two resource families - Coupons and software License Keys. Coupon operations authenticate with the account API key (payhip-api-key header); license operations authenticate with a per-product secret key (product-secret-key header). Both keys are managed from the Developer Settings page. Order, customer, and transaction data is not exposed as a REST resource; it is delivered through the webhooks documented in the "webhooks" section (paid, refunded, subscription.created, subscription.deleted), whose payloads carry a signature equal to hash('sha256', apiKey). Not all Payhip features are available in the API; Payhip states more resources are planned.
+  version: '2.0'
+  contact:
+    name: Payhip
+    url: https://payhip.com
+  x-modeled: Paths, methods, webhook event names, and field names are taken from Payhip's published API reference (payhip.com/api-reference) and webhooks help article. Request/response schemas expand documented fields into typed properties and should be reconciled against a live account response.
+servers:
+- url: https://payhip.com/api/v2
+  description: Payhip public API
+tags:
+- name: Payhip API
+paths: {}
+webhooks:
+  paid:
+    post:
+      operationId: onPaid
+      summary: Customer charged
+      description: Sent when a customer is charged for a purchase. Monetary amounts are in cents. Verify authenticity by comparing the signature field with hash('sha256', apiKey).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionEvent'
+      responses:
+        '200':
+          description: Acknowledged. Payhip retries hourly for up to three hours on non-200.
+      tags:
+      - Payhip API
+  refunded:
+    post:
+      operationId: onRefunded
+      summary: Payment refunded
+      description: Sent when a payment is refunded. Amounts are in cents.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionEvent'
+      responses:
+        '200':
+          description: Acknowledged.
+      tags:
+      - Payhip API
+  subscriptionCreated:
+    post:
+      operationId: onSubscriptionCreated
+      summary: Subscription created
+      description: Sent when a new membership/subscription begins.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionEvent'
+      responses:
+        '200':
+          description: Acknowledged.
+      tags:
+      - Payhip API
+  subscriptionDeleted:
+    post:
+      operationId: onSubscriptionDeleted
+      summary: Subscription deleted
+      description: Sent when a membership/subscription is cancelled.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionEvent'
+      responses:
+        '200':
+          description: Acknowledged.
+      tags:
+      - Payhip API
+components:
+  schemas:
+    TransactionEvent:
+      type: object
+      description: Payload for paid and refunded webhooks. Amounts are in cents. Delivered as an outbound HTTP POST, not fetchable via REST.
+      properties:
+        type:
+          type: string
+          enum:
+          - paid
+          - refunded
+        id:
+          type: string
+          description: Transaction identifier.
+        email:
+          type: string
+          format: email
+          description: Customer email.
+        price:
+          type: integer
+          description: Amount in cents.
+        currency:
+          type: string
+        items:
+          type: array
+          description: Items purchased.
+          items:
+            type: object
+            additionalProperties: true
+        payment_type:
+          type: string
+          description: Payment processor / method used.
+        signature:
+          type: string
+          description: Equals hash('sha256', apiKey). Use to verify authenticity.
+        date:
+          type: string
+          format: date-time
+    SubscriptionEvent:
+      type: object
+      description: Payload for subscription.created and subscription.deleted webhooks.
+      properties:
+        type:
+          type: string
+          enum:
+          - subscription.created
+          - subscription.deleted
+        id:
+          type: string
+          description: Subscription identifier.
+        email:
+          type: string
+          format: email
+        plan_name:
+          type: string
+        product_name:
+          type: string
+        signature:
+          type: string
+          description: Equals hash('sha256', apiKey).
+        date:
+          type: string
+          format: date-time
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: payhip-api-key
+      description: Account API key from the Developer Settings page. Used for coupon operations.
+    productSecretAuth:
+      type: apiKey
+      in: header
+      name: product-secret-key
+      description: Per-product secret key from the Developer Settings page. Used for license key operations.
