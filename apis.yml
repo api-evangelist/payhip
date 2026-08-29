@@ -109,6 +109,9 @@ apis:
   - type: OpenAPI
     url: openapi/payhip-payhip-api-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/payhip-capability-edges.yml
+  name: Payhip Business Capability Map
 - type: AgenticAccess
   url: agentic-access/payhip-agentic-access.yml
 - type: DomainSecurity
