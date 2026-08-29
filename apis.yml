@@ -10,6 +10,18 @@ description: Payhip is an all-in-one e-commerce platform that lets creators sell
   per-product secret key. Order, customer, and transaction data is delivered to
   applications through signed webhooks (paid, refunded, subscription.created,
   subscription.deleted) rather than through pollable REST resources.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
