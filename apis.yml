@@ -2,14 +2,13 @@ aid: payhip
 url: https://raw.githubusercontent.com/api-evangelist/payhip/refs/heads/main/apis.yml
 name: Payhip
 kind: company
-description: Payhip is an all-in-one e-commerce platform that lets creators sell digital
-  downloads, online courses, memberships, coupons, and physical products directly to
-  their audience, with hosted storefronts and checkout. Its public REST API (base
-  https://payhip.com/api/v2) currently exposes programmatic management of Coupons and
-  verification/management of software License Keys, authenticated with an API key or a
-  per-product secret key. Order, customer, and transaction data is delivered to
-  applications through signed webhooks (paid, refunded, subscription.created,
-  subscription.deleted) rather than through pollable REST resources.
+description: Payhip is an all-in-one e-commerce platform that lets creators sell digital downloads, online
+  courses, memberships, coupons, and physical products directly to their audience, with hosted storefronts
+  and checkout. Its public REST API (base https://payhip.com/api/v2) currently exposes programmatic management
+  of Coupons and verification/management of software License Keys, authenticated with an API key or a
+  per-product secret key. Order, customer, and transaction data is delivered to applications through signed
+  webhooks (paid, refunded, subscription.created, subscription.deleted) rather than through pollable REST
+  resources.
 deliveryModel:
   model: saas
   open_source: false
@@ -56,7 +55,7 @@ tags_raw:
 - Webhooks
 - Payments
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: payhip:payhip-coupons-api
@@ -100,7 +99,7 @@ apis:
   - type: Documentation
     url: https://help.payhip.com/article/115-webhooks
 - aid: payhip:payhip-payhip-api-api
-  name: Payhip Payhip API
+  name: Payhip API
   description: The Payhip API API from Payhip — 0 operation(s) for payhip api.
   humanURL: https://payhip.com/api-reference
   baseURL: https://payhip.com/api/v2
