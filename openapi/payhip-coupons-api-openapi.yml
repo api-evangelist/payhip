@@ -97,17 +97,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Coupon:
-      allOf:
-      - $ref: '#/components/schemas/CouponInput'
-      - type: object
-        properties:
-          id:
-            type: string
-            description: Unique identifier for the coupon.
-          usage_count:
-            type: integer
-            description: Number of times the coupon has been redeemed.
     CouponInput:
       type: object
       required:
@@ -159,6 +148,17 @@ components:
           type: string
         message:
           type: string
+    Coupon:
+      allOf:
+      - $ref: '#/components/schemas/CouponInput'
+      - type: object
+        properties:
+          id:
+            type: string
+            description: Unique identifier for the coupon.
+          usage_count:
+            type: integer
+            description: Number of times the coupon has been redeemed.
     CouponEnvelope:
       type: object
       properties:
