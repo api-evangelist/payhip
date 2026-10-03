@@ -76,6 +76,31 @@ webhooks:
       - Payhip API
 components:
   schemas:
+    SubscriptionEvent:
+      type: object
+      description: Payload for subscription.created and subscription.deleted webhooks.
+      properties:
+        type:
+          type: string
+          enum:
+          - subscription.created
+          - subscription.deleted
+        id:
+          type: string
+          description: Subscription identifier.
+        email:
+          type: string
+          format: email
+        plan_name:
+          type: string
+        product_name:
+          type: string
+        signature:
+          type: string
+          description: Equals hash('sha256', apiKey).
+        date:
+          type: string
+          format: date-time
     TransactionEvent:
       type: object
       description: Payload for paid and refunded webhooks. Amounts are in cents. Delivered as an outbound HTTP POST, not fetchable via REST.
@@ -109,31 +134,6 @@ components:
         signature:
           type: string
           description: Equals hash('sha256', apiKey). Use to verify authenticity.
-        date:
-          type: string
-          format: date-time
-    SubscriptionEvent:
-      type: object
-      description: Payload for subscription.created and subscription.deleted webhooks.
-      properties:
-        type:
-          type: string
-          enum:
-          - subscription.created
-          - subscription.deleted
-        id:
-          type: string
-          description: Subscription identifier.
-        email:
-          type: string
-          format: email
-        plan_name:
-          type: string
-        product_name:
-          type: string
-        signature:
-          type: string
-          description: Equals hash('sha256', apiKey).
         date:
           type: string
           format: date-time
