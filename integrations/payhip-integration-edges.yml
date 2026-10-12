@@ -1,0 +1,443 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/payhip/integrations
+- https://composio.dev/toolkits/payhip
+checked:
+- https://composio.dev/toolkits/payhip
+- https://monid.ai/tools/payhip
+- https://n8n.io/integrations/payhip/
+- https://zapier.com/apps/payhip/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: payhip
+  url: https://zapier.com/apps/payhip/integrations
+  external_url: https://payhip.com/
+  partner_tier: GOLD
+  triggers:
+  - key: members_cancelled
+    label: Cancel Membership Subscription
+  - key: members_new
+    label: New Membership Subscription
+  - key: new_transaction
+    label: New Sale
+  - key: products_new
+    label: New Product
+  - key: sales_refund
+    label: Refund
+  actions: []
+  searches: []
+- marketplace: composio
+  channel: agent-gateway
+  app: payhip
+  url: https://composio.dev/toolkits/payhip
+  identity: action-prefix
+  actions:
+  - key: PAYHIP_CREATE_COUPON
+  - key: PAYHIP_DELETE_COUPON
+  - key: PAYHIP_GET_COUPON
+  - key: PAYHIP_PAYHIP_WEBHOOK_EVENT_PAID
+  - key: PAYHIP_PAYHIP_WEBHOOK_EVENT_REFUNDED
+  - key: PAYHIP_PAYHIP_WEBHOOK_EVENT_SUBSCRIPTION_CREATED
+  - key: PAYHIP_PAYHIP_WEBHOOK_EVENT_SUBSCRIPTION_DELETED
+  - key: PAYHIP_UPDATE_COUPON
+  - key: PAYHIP_VERIFY_COUPON
+  - key: PAYHIP_WEBHOOK_EVENT_PAID
+  - key: PAYHIP_WEBHOOK_EVENT_REFUNDED
+  - key: PAYHIP_WEBHOOK_EVENT_SUBSCRIPTION_CREATED
+  - key: PAYHIP_WEBHOOK_EVENT_SUBSCRIPTION_DELETED
+edges:
+- partner_name: MailerLite
+  partner: mailerlite
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/mailerlite
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.mailerlite.com/?utm_source=zapier&utm_medium=partner&utm_campaign=profile&utm_term=learn_more&utm_content=integrations
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: Brevo
+  partner: brevo
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/brevo
+  direction: third-party
+  category: Email Newsletters
+  partner_url: https://www.sendinblue.com/?utm_medium=plugin&utm_source=zapier
+- partner_name: Gmail
+  partner: gmail
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: Flodesk
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/flodesk
+  direction: third-party
+  category: Email Newsletters
+  partner_url: https://flodesk.com/
+- partner_name: systeme.io
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/systemeio
+  direction: third-party
+  category: Marketing
+  partner_url: https://systeme.io/
+- partner_name: Bookvault
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/bookvault
+  direction: third-party
+  category: Printing
+  partner_url: https://bookvault.app/
+- partner_name: Discord
+  partner: discord
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/discord
+  direction: third-party
+  category: Team Chat
+  partner_url: https://discordapp.com/
+- partner_name: EmailOctopus
+  partner: emailoctopus
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/emailoctopus
+  direction: third-party
+  category: Email Newsletters
+  partner_url: https://emailoctopus.com/account/sign-up
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Constant Contact
+  partner: constant-contact
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/constant-contact
+  direction: third-party
+  category: Email Newsletters
+  partner_url: http://www.constantcontact.com/signup.jsp?pn=zapier
+- partner_name: Google Drive
+  partner: google-drive
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/google-drive
+  direction: third-party
+  category: File Management & Storage
+  partner_url: https://www.google.com/drive/
+- partner_name: Sender
+  partner: sender
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/sender
+  direction: third-party
+  category: Email Newsletters
+  partner_url: https://www.sender.net/?utm_source=Zapier&utm_medium=email+newsletter&utm_campaign=apps+directory
+- partner_name: Facebook Conversions
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/facebook-conversions
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://developers.facebook.com/docs/marketing-api/server-side-api/guides/zapier-integration
+- partner_name: beehiiv
+  partner: beehiiv
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/beehiiv
+  direction: third-party
+  category: Email Newsletters
+  partner_url: http://beehiiv.link/zapier
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Klaviyo
+  partner: klaviyo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/klaviyo
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.klaviyo.com/
+- partner_name: Pinterest
+  partner: pinterest
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/pinterest
+  direction: third-party
+  category: Social Media Accounts
+  partner_url: https://pinterest.com/
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/activecampaign
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.activecampaign.com/?utm_source=unpaid_syndication_website&utm_medium=referral&utm_campaign=zapier_listing
+- partner_name: LeadConnector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/leadconnector
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.leadconnectorhq.com/
+- partner_name: Kit
+  partner: convertkit
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/kit
+  direction: third-party
+  category: Drip Emails
+  partner_url: https://kit.com/
+- partner_name: Omnisend
+  partner: omnisend
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/omnisend
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://omnisend.sjv.io/zapier
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Google Ads
+  partner: google-ads
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/google-ads
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://ads.google.com/
+- partner_name: Microsoft Outlook
+  partner: microsoft-outlook
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/microsoft-outlook
+  direction: third-party
+  category: Calendar
+  partner_url: https://outlook.live.com/
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: Skool
+  partner: skool
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/skool
+  direction: third-party
+  category: Education
+  partner_url: https://skool.com/
+- partner_name: MailerLite Classic
+  partner: mailerlite
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/mailerlite-classic
+  direction: third-party
+  category: Email Newsletters
+  partner_url: https://www.mailerlite.com/
+- partner_name: Google Docs
+  partner: google-docs
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/google-docs
+  direction: third-party
+  category: Documents
+  partner_url: http://google.com/
+templates:
+- title: Tag new Payhip sales in EmailOctopus contacts instantly
+  url: https://zapier.com/apps/emailoctopus/integrations/payhip/255596284/tag-new-payhip-sales-in-emailoctopus-contacts-instantly
+  apps:
+  - payhip
+  - emailoctopus
+- title: Send new Payhip sales as channel messages in Discord
+  url: https://zapier.com/apps/discord/integrations/payhip/1210553/send-new-payhip-sales-as-channel-messages-in-discord
+  apps:
+  - payhip
+  - discord
+- title: Subscribe new Payhip customers to Flodesk lists
+  url: https://zapier.com/apps/flodesk/integrations/payhip/643633/subscribe-new-payhip-customers-to-flodesk-lists
+  apps:
+  - payhip
+  - flodesk
+- title: Add new Mailchimp subscribers to tag for each new sale in Payhip
+  url: https://zapier.com/apps/mailchimp/integrations/payhip/1610301/add-new-mailchimp-subscribers-to-tag-for-each-new-sale-in-payhip
+  apps:
+  - payhip
+  - mailchimp
+- title: Add or update Mailchimp subscribers for new Payhip sales
+  url: https://zapier.com/apps/mailchimp/integrations/payhip/1219478/add-or-update-mailchimp-subscribers-for-new-payhip-sales
+  apps:
+  - payhip
+  - mailchimp
+- title: Update EmailOctopus contacts with new Payhip sales
+  url: https://zapier.com/apps/emailoctopus/integrations/payhip/1730326/update-emailoctopus-contacts-with-new-payhip-sales
+  apps:
+  - payhip
+  - emailoctopus
+- title: Add or update Brevo contacts with each new Payhip sale
+  url: https://zapier.com/apps/brevo/integrations/payhip/1669482/add-or-update-brevo-contacts-with-each-new-payhip-sale
+  apps:
+  - payhip
+  - brevo
+- title: Create new Ghost members from new Payhip sales
+  url: https://zapier.com/apps/ghost/integrations/payhip/1704216/create-new-ghost-members-from-new-payhip-sales
+  apps:
+  - payhip
+  - ghost
+- title: Create and send Discord channel messages for new Payhip products
+  url: https://zapier.com/apps/discord/integrations/payhip/1236275/create-and-send-discord-channel-messages-for-new-payhip-products
+  apps:
+  - payhip
+  - discord
+- title: Add new Payhip sales to ActiveCampaign as contacts or update existing ones
+  url: https://zapier.com/apps/activecampaign/integrations/payhip/1287247/add-new-payhip-sales-to-activecampaign-as-contacts-or-update-existing-ones
+  apps:
+  - payhip
+  - activecampaign
+- title: Assign roles in Discord for every new membership subscription in Payhip
+  url: https://zapier.com/apps/discord/integrations/payhip/1769438/assign-roles-in-discord-for-every-new-membership-subscription-in-payhip
+  apps:
+  - payhip
+  - discord
+- title: Add new Payhip sales to a MailerLite group as subscribers
+  url: https://zapier.com/apps/mailerlite/integrations/payhip/1226439/add-new-payhip-sales-to-a-mailerlite-group-as-subscribers
+  apps:
+  - payhip
+  - mailerlite
+template_total: 184
