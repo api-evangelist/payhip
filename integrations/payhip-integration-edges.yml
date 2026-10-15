@@ -8,6 +8,7 @@ checked:
 - https://monid.ai/tools/payhip
 - https://n8n.io/integrations/payhip/
 - https://zapier.com/apps/payhip/integrations
+- wordpress/integrations/wordpress-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -379,6 +380,23 @@ edges:
   direction: third-party
   category: Documents
   partner_url: http://google.com/
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/payhip-sell-ebooks/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Payhip – Sell Downloads
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
 templates:
 - title: Tag new Payhip sales in EmailOctopus contacts instantly
   url: https://zapier.com/apps/emailoctopus/integrations/payhip/255596284/tag-new-payhip-sales-in-emailoctopus-contacts-instantly
