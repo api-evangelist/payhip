@@ -96,6 +96,19 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key / product secret key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -104,6 +117,11 @@ components:
           type: string
         message:
           type: string
+    CouponEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Coupon'
     CouponInput:
       type: object
       required:
@@ -159,24 +177,6 @@ components:
           usage_count:
             type: integer
             description: Number of times the coupon has been redeemed.
-    CouponEnvelope:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Coupon'
-  responses:
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API key / product secret key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

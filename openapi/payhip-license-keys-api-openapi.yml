@@ -138,27 +138,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid API key / product secret key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
     LicenseKeyRef:
       type: object
       required:
@@ -167,6 +147,18 @@ components:
         license_key:
           type: string
           description: The license key to act on.
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    LicenseEnvelope:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/LicenseKey'
     LicenseKey:
       type: object
       properties:
@@ -194,11 +186,19 @@ components:
           type: string
           format: date-time
           description: When the key was issued.
-    LicenseEnvelope:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/LicenseKey'
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key / product secret key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey
