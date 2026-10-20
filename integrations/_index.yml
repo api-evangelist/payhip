@@ -428,6 +428,19 @@
   source: edge
   status: pending-generation
   arazzo: null
+- slug: payhip-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/payhip-sell-ebooks/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: payhip-zapier
   label: Zapier
   partner: zapier
@@ -460,7 +473,7 @@
   type: marketplace
   marketplace: pipedream-components
   channel: open-source-node
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/payhip
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/payhip
   source: edge
   relationship: ipaas-bridge
   contract_reference:
@@ -477,18 +490,5 @@
     actions: true
     sources: true
     builder: Pipedream repo (component)
-  status: not-a-workflow
-  arazzo: null
-- slug: payhip-wordpress-own
-  label: WordPress (own)
-  partner: wordpress
-  partner_name: WordPress (own)
-  category: WordPress plugin
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://wordpress.org/plugins/payhip-sell-ebooks/
-  source: edge
-  relationship: platform-app
   status: not-a-workflow
   arazzo: null
