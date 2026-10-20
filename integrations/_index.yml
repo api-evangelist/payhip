@@ -15,6 +15,7 @@
   evidence: https://zapier.com/apps/emailoctopus/integrations/payhip/255596284/tag-new-payhip-sales-in-emailoctopus-contacts-instantly
   template: https://zapier.com/apps/emailoctopus/integrations/payhip/255596284/tag-new-payhip-sales-in-emailoctopus-contacts-instantly
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-send-new-payhip-sales-as-channel-messages-in-discord
@@ -29,6 +30,7 @@
   evidence: https://zapier.com/apps/discord/integrations/payhip/1210553/send-new-payhip-sales-as-channel-messages-in-discord
   template: https://zapier.com/apps/discord/integrations/payhip/1210553/send-new-payhip-sales-as-channel-messages-in-discord
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-subscribe-new-payhip-customers-to-flodesk-lists
@@ -42,6 +44,7 @@
   evidence: https://zapier.com/apps/flodesk/integrations/payhip/643633/subscribe-new-payhip-customers-to-flodesk-lists
   template: https://zapier.com/apps/flodesk/integrations/payhip/643633/subscribe-new-payhip-customers-to-flodesk-lists
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: payhip-add-new-mailchimp-subscribers-to-tag-for-each-new-sale-in-payhip
@@ -56,6 +59,7 @@
   evidence: https://zapier.com/apps/mailchimp/integrations/payhip/1610301/add-new-mailchimp-subscribers-to-tag-for-each-new-sale-in-payhip
   template: https://zapier.com/apps/mailchimp/integrations/payhip/1610301/add-new-mailchimp-subscribers-to-tag-for-each-new-sale-in-payhip
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-add-or-update-mailchimp-subscribers-for-new-payhip-sales
@@ -70,6 +74,7 @@
   evidence: https://zapier.com/apps/mailchimp/integrations/payhip/1219478/add-or-update-mailchimp-subscribers-for-new-payhip-sales
   template: https://zapier.com/apps/mailchimp/integrations/payhip/1219478/add-or-update-mailchimp-subscribers-for-new-payhip-sales
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-update-emailoctopus-contacts-with-new-payhip-sales
@@ -84,6 +89,7 @@
   evidence: https://zapier.com/apps/emailoctopus/integrations/payhip/1730326/update-emailoctopus-contacts-with-new-payhip-sales
   template: https://zapier.com/apps/emailoctopus/integrations/payhip/1730326/update-emailoctopus-contacts-with-new-payhip-sales
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-add-or-update-brevo-contacts-with-each-new-payhip-sale
@@ -98,6 +104,7 @@
   evidence: https://zapier.com/apps/brevo/integrations/payhip/1669482/add-or-update-brevo-contacts-with-each-new-payhip-sale
   template: https://zapier.com/apps/brevo/integrations/payhip/1669482/add-or-update-brevo-contacts-with-each-new-payhip-sale
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-create-and-send-discord-channel-messages-for-new-payhip-products
@@ -112,6 +119,7 @@
   evidence: https://zapier.com/apps/discord/integrations/payhip/1236275/create-and-send-discord-channel-messages-for-new-payhip-products
   template: https://zapier.com/apps/discord/integrations/payhip/1236275/create-and-send-discord-channel-messages-for-new-payhip-products
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-add-new-payhip-sales-to-activecampaign-as-contacts-or-update-existing-ones
@@ -126,6 +134,7 @@
   evidence: https://zapier.com/apps/activecampaign/integrations/payhip/1287247/add-new-payhip-sales-to-activecampaign-as-contacts-or-update-existing-ones
   template: https://zapier.com/apps/activecampaign/integrations/payhip/1287247/add-new-payhip-sales-to-activecampaign-as-contacts-or-update-existing-ones
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-assign-roles-in-discord-for-every-new-membership-subscription-in-payhip
@@ -140,6 +149,7 @@
   evidence: https://zapier.com/apps/discord/integrations/payhip/1769438/assign-roles-in-discord-for-every-new-membership-subscription-in-payhip
   template: https://zapier.com/apps/discord/integrations/payhip/1769438/assign-roles-in-discord-for-every-new-membership-subscription-in-payhip
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-add-new-payhip-sales-to-a-mailerlite-group-as-subscribers
@@ -154,278 +164,7 @@
   evidence: https://zapier.com/apps/mailerlite/integrations/payhip/1226439/add-new-payhip-sales-to-a-mailerlite-group-as-subscribers
   template: https://zapier.com/apps/mailerlite/integrations/payhip/1226439/add-new-payhip-sales-to-a-mailerlite-group-as-subscribers
   source: template
-  status: pending-generation
-  arazzo: null
-- slug: payhip-gmail
-  label: Gmail
-  partner: gmail
-  partner_name: Gmail
-  category: Email
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/gmail
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: payhip-systeme-io
-  label: systeme.io
-  partner_name: systeme.io
-  category: Marketing
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/systemeio
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: payhip-bookvault
-  label: Bookvault
-  partner_name: Bookvault
-  category: Printing
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/bookvault
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: payhip-notion
-  label: Notion
-  partner: notion
-  partner_name: Notion
-  category: Task Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/notion
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-google-sheets
-  label: Google Sheets
-  partner: google-sheets
-  partner_name: Google Sheets
-  category: Google
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/google-sheets
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-constant-contact
-  label: Constant Contact
-  partner: constant-contact
-  partner_name: Constant Contact
-  category: Email Newsletters
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/constant-contact
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-google-drive
-  label: Google Drive
-  partner: google-drive
-  partner_name: Google Drive
-  category: File Management & Storage
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/google-drive
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-sender
-  label: Sender
-  partner: sender
-  partner_name: Sender
-  category: Email Newsletters
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/sender
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: payhip-facebook-conversions
-  label: Facebook Conversions
-  partner_name: Facebook Conversions
-  category: Ads & Conversion
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/facebook-conversions
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: payhip-beehiiv
-  label: beehiiv
-  partner: beehiiv
-  partner_name: beehiiv
-  category: Email Newsletters
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/beehiiv
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-hubspot
-  label: HubSpot
-  partner: hubspot
-  partner_name: HubSpot
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/hubspot
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-klaviyo
-  label: Klaviyo
-  partner: klaviyo
-  partner_name: Klaviyo
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/klaviyo
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-pinterest
-  label: Pinterest
-  partner: pinterest
-  partner_name: Pinterest
-  category: Social Media Accounts
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/pinterest
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-leadconnector
-  label: LeadConnector
-  partner_name: LeadConnector
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/leadconnector
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: payhip-kit
-  label: Kit
-  partner: convertkit
-  partner_name: Kit
-  category: Drip Emails
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/kit
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-omnisend
-  label: Omnisend
-  partner: omnisend
-  partner_name: Omnisend
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/omnisend
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-airtable
-  label: Airtable
-  partner: airtable
-  partner_name: Airtable
-  category: Databases
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/airtable
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-google-ads
-  label: Google Ads
-  partner: google-ads
-  partner_name: Google Ads
-  category: Ads & Conversion
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/google-ads
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-microsoft-outlook
-  label: Microsoft Outlook
-  partner: microsoft-outlook
-  partner_name: Microsoft Outlook
-  category: Calendar
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/microsoft-outlook
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-shopify
-  label: Shopify
-  partner: shopify
-  partner_name: Shopify
-  category: eCommerce
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/shopify
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-skool
-  label: Skool
-  partner: skool
-  partner_name: Skool
-  category: Education
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/skool
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: payhip-mailerlite-classic
-  label: MailerLite Classic
-  partner: mailerlite
-  partner_name: MailerLite Classic
-  category: Email Newsletters
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/mailerlite-classic
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: payhip-google-docs
-  label: Google Docs
-  partner: google-docs
-  partner_name: Google Docs
-  category: Documents
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/payhip/integrations/google-docs
-  source: edge
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: payhip-wordpress-own
@@ -491,4 +230,300 @@
     sources: true
     builder: Pipedream repo (component)
   status: not-a-workflow
+  arazzo: null
+- slug: payhip-gmail
+  label: Gmail
+  partner: gmail
+  partner_name: Gmail
+  category: Email
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/gmail
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: payhip-systeme-io
+  label: systeme.io
+  partner_name: systeme.io
+  category: Marketing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/systemeio
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: payhip-bookvault
+  label: Bookvault
+  partner_name: Bookvault
+  category: Printing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/bookvault
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: payhip-notion
+  label: Notion
+  partner: notion
+  partner_name: Notion
+  category: Task Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/notion
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-google-sheets
+  label: Google Sheets
+  partner: google-sheets
+  partner_name: Google Sheets
+  category: Google
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/google-sheets
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-constant-contact
+  label: Constant Contact
+  partner: constant-contact
+  partner_name: Constant Contact
+  category: Email Newsletters
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/constant-contact
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-google-drive
+  label: Google Drive
+  partner: google-drive
+  partner_name: Google Drive
+  category: File Management & Storage
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/google-drive
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-sender
+  label: Sender
+  partner: sender
+  partner_name: Sender
+  category: Email Newsletters
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/sender
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: payhip-facebook-conversions
+  label: Facebook Conversions
+  partner: facebook
+  partner_name: Facebook Conversions
+  category: Ads & Conversion
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/facebook-conversions
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-beehiiv
+  label: beehiiv
+  partner: beehiiv
+  partner_name: beehiiv
+  category: Email Newsletters
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/beehiiv
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-klaviyo
+  label: Klaviyo
+  partner: klaviyo
+  partner_name: Klaviyo
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/klaviyo
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-pinterest
+  label: Pinterest
+  partner: pinterest
+  partner_name: Pinterest
+  category: Social Media Accounts
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/pinterest
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-leadconnector
+  label: LeadConnector
+  partner_name: LeadConnector
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/leadconnector
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: payhip-kit
+  label: Kit
+  partner: convertkit
+  partner_name: Kit
+  category: Drip Emails
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/kit
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-omnisend
+  label: Omnisend
+  partner: omnisend
+  partner_name: Omnisend
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/omnisend
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-airtable
+  label: Airtable
+  partner: airtable
+  partner_name: Airtable
+  category: Databases
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/airtable
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-google-ads
+  label: Google Ads
+  partner: google-ads
+  partner_name: Google Ads
+  category: Ads & Conversion
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/google-ads
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-microsoft-outlook
+  label: Microsoft Outlook
+  partner: microsoft-outlook
+  partner_name: Microsoft Outlook
+  category: Calendar
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/microsoft-outlook
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-shopify
+  label: Shopify
+  partner: shopify
+  partner_name: Shopify
+  category: eCommerce
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/shopify
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-skool
+  label: Skool
+  partner: skool
+  partner_name: Skool
+  category: Education
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/skool
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: payhip-mailerlite-classic
+  label: MailerLite Classic
+  partner: mailerlite
+  partner_name: MailerLite Classic
+  category: Email Newsletters
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/mailerlite-classic
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-google-docs
+  label: Google Docs
+  partner: google-docs
+  partner_name: Google Docs
+  category: Documents
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/google-docs
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: payhip-facebook-pages
+  label: Facebook Pages
+  partner: facebook-pages
+  partner_name: Facebook Pages
+  category: Facebook
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/payhip/integrations/facebook-pages
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
   arazzo: null
