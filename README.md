@@ -1,4 +1,4 @@
-# Payhip (payhip)
+# Payhip
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,104 +64,121 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Payhip is an all-in-one e-commerce platform that lets creators sell digital downloads, online courses, memberships, coupons, and physical products directly to their audience, with hosted storefronts and checkout. Its **public REST API** (base `https://payhip.com/api/v2`) is self-serve and openly documented, but currently narrow: it exposes programmatic management of **Coupons** and verification/management of software **License Keys**. Order, customer, and transaction data is not a pollable REST resource - it is delivered to your application through signed **webhooks** (`paid`, `refunded`, `subscription.created`, `subscription.deleted`).
+Payhip is an all-in-one e-commerce platform that lets creators sell digital downloads, online courses, memberships, coupons, and physical products directly to their audience, with hosted storefronts and checkout. Its public REST API (base https://payhip.com/api/v2) currently exposes programmatic management of Coupons and verification/management of software License Keys, authenticated with an API key or a per-product secret key. Order, customer, and transaction data is delivered to applications through signed webhooks (paid, refunded, subscription.created, subscription.deleted) rather than through pollable REST resources.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/payhip/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/payhip/refs/heads/main/apis.yml)
+**Areas:** E-Commerce · Digital Products · Membership · Creators · Coupons · License Keys · Webhook · Payments
 
-## Access Model
+## Payhip on APIs.io
 
-- **Public and self-serve.** Docs are openly readable at [payhip.com/api-reference](https://payhip.com/api-reference) and the [Developer help center](https://help.payhip.com/category/48-developer). Any account holder generates an API key and per-product secret keys from **Settings > Developer** - no partner approval or sales contact required.
-- **Two credentials.** Coupon calls use the account API key via the `payhip-api-key` header. License calls use a per-product secret key via the `product-secret-key` header. A request without a key returns HTTP `401`, confirming the API is live.
-- **Deliberately narrow today.** Payhip's own help center states the API "currently supports managing coupons and license keys," with more planned. There are **no Products, Customers, or Transactions REST endpoints** - that data flows only through webhooks.
-- **Responses** are JSON wrapped in a `data` object; monetary amounts in webhook payloads are in cents.
+Everything profiled for Payhip is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/payhip/](https://apis.io/providers/payhip/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- E-commerce
-- Digital Products
-- Memberships
-- Creators
-- Coupons
-- License Keys
-- Webhooks
-- Payments
+- [Payhip Coupons API](https://apis.io/apis/payhip/payhip-coupons-api/) — Create, list, and retrieve discount coupons.
+- [Payhip License Keys API](https://apis.io/apis/payhip/payhip-license-keys-api/) — Verify and manage software license keys issued for Payhip products.
+- [Payhip API](https://apis.io/apis/payhip/payhip-payhip-api-api/) — The Payhip API API from Payhip — 0 operation(s) for payhip api.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-05
-- **Modified:** 2026-07-05
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Payhip Coupons API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Programmatically create, list, and retrieve discount coupons - percentage or fixed-amount, single, multi-use, or collection-scoped - including usage limits, minimum purchase amounts, start/end dates, and product or collection targeting. Authenticated with the account API key via the `payhip-api-key` header.
+- [Payhip Agentic Access](https://apis.io/agentic-access/payhip/payhip-agentic-access/)
 
-- **Human URL:** [https://payhip.com/api-reference](https://payhip.com/api-reference)
-- **Base URL:** `https://payhip.com/api/v2`
-- `POST /coupons` · `GET /coupons` · `GET /coupons/{id}`
+#### Collections (3)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://help.payhip.com/article/347-public-api)
-- [API Reference](https://payhip.com/api-reference)
-- [OpenAPI](openapi/payhip-openapi.yml)
-- [Postman Collection](collections/payhip.postman_collection.json)
-- [Open Collection](collections/payhip.opencollection.json)
+- [Payhip API](https://apis.io/collections/payhip/open-payhip/)
+- [Payhip Coupons API](https://apis.io/collections/payhip/open-payhip-coupons-api/)
+- [Payhip Coupons License Keys API](https://apis.io/collections/payhip/open-payhip-license-keys-api/)
 
-### Payhip License Keys API
+#### Security (2)
 
-Verify and manage software license keys issued for Payhip products - validate a key and read its buyer, product, and usage details; enable or disable a key; and increment or decrement its usage count. Authenticated with the per-product secret key via the `product-secret-key` header.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://payhip.com/api-reference](https://payhip.com/api-reference)
-- **Base URL:** `https://payhip.com/api/v2`
-- `GET /license/verify` · `PUT /license/enable` · `PUT /license/disable` · `PUT /license/usage` · `PUT /license/decrease`
+- [Payhip Authentication](https://apis.io/security/payhip/payhip-authentication/)
+- [Payhip Domain Security](https://apis.io/security/payhip/payhip-domain-security/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://help.payhip.com/article/347-public-api)
-- [API Reference](https://payhip.com/api-reference)
-- [OpenAPI](openapi/payhip-openapi.yml)
-- [Postman Collection](collections/payhip.postman_collection.json)
-- [Open Collection](collections/payhip.opencollection.json)
+Published plans, tiers and prices.
 
-### Payhip Webhooks API
+- [Payhip Plans Pricing](https://apis.io/plans/payhip/payhip-plans-pricing/)
 
-Receive server-to-endpoint HTTP callbacks for account events - `paid` (customer charged), `refunded`, `subscription.created`, and `subscription.deleted` - carrying transaction, customer, item, and subscription details. Each payload includes a `signature` that verifies authenticity as `hash('sha256', apiKey)`. Amounts are in cents. Endpoints must return HTTP 200; failed deliveries retry hourly for up to three hours. This is how order/customer/transaction data reaches external applications.
+#### Rate limits (1)
 
-- **Human URL:** [https://help.payhip.com/article/115-webhooks](https://help.payhip.com/article/115-webhooks)
-- **Configured under:** Settings > Developer
+Published request limits.
 
-#### Properties
+- [Payhip Rate Limits](https://apis.io/rate-limits/payhip/payhip-rate-limits/)
 
-- [Documentation](https://help.payhip.com/article/115-webhooks)
-- [OpenAPI](openapi/payhip-openapi.yml) (webhook payloads under the `webhooks` section)
+#### FinOps (1)
 
-## Pricing
+What the API costs to run, by operation.
 
-Payhip is priced as a platform subscription plus a per-sale fee, not as a metered API. API and webhook access is included on every plan.
+- [Payhip Finops](https://apis.io/finops/payhip/payhip-finops/)
 
-- **Free** - $0/month, **5%** per-sale Payhip fee
-- **Plus** - $29/month, **2%** per-sale Payhip fee
-- **Pro** - $99/month, **0%** Payhip fee
+## Where to find this API
 
-Payment processor fees (Stripe/PayPal) are separate and always apply. See [payhip.com/pricing](https://payhip.com/pricing).
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/payhip)
 - [Website](https://payhip.com)
 - [Documentation](https://help.payhip.com/category/48-developer)
-- [API Reference](https://payhip.com/api-reference)
-- [Plans](plans/payhip-plans-pricing.yml)
-- [Rate Limits](rate-limits/payhip-rate-limits.yml)
-- [Fin Ops](finops/payhip-finops.yml)
+- [API reference](https://payhip.com/api-reference)
+- [Blog](https://payhip.com/blog/)
 
-## Review
+## API Evangelist rating
 
-Does Payhip expose a documented public WebSocket API? **No.** Payhip's public surface is request/response REST (Coupons, License Keys) plus outbound signed webhooks. There is no `ws://`/`wss://` endpoint, so no AsyncAPI document was authored. See [review.yml](review.yml).
+**Kin Score 24.6** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 45.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 7.9 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 23.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/payhip/](https://apis.io/providers/payhip/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Payhip: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/payhip/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
